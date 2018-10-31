@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>::Table Booking Application::</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="category-row">
+        <div class="container">
+            <!-- Restaturant Detail block -->
+            <div class="restaurant-detail-block">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 ">
+                        <div class="restaurant-detail">
+                            <!-- Restaurant infomation -->
+                            <div class="restaurant-infor-block">
+                                <div class="rest-info-tab">
+                                    <div class="nav-tabs-dropdown-btn">
+                                    <a href="#" id="nav-tabs-show" class="nav-tabs-dropdown btn btn-block btn-primary tabs-master-list">Detail </a>
+                                    </div>   
+                                    <div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+                                    <div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+                                    <div class="wrapper">
+                                        <ul class="nav nav-tabs nav-tabs-horizontal list" id="nav-tabs-wrapper" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list active" id="home-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-selected="true">Category 1</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list" id="profile-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile" aria-selected="false">Category 2</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list" id="contact-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="contact" aria-selected="false">Category 3</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list" id="contact-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="contact" aria-selected="false">Category 4</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list" id="contact-tab" data-toggle="tab" href="#tab5" role="tab" aria-controls="contact" aria-selected="false">Category 5</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tabs-secondary-list" id="contact-tab" data-toggle="tab" href="#tab6" role="tab" aria-controls="contact" aria-selected="false">Category 6</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+                                                Lorem Ipsum 1
+                                            </div>
+                                            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+                                                Lorem Ipsum 2
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="contact-tab">
+                                                Lorem Ipsum 3
+                                            </div>
+                                            <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="contact-tab">
+                                                Lorem Ipsum 4
+                                            </div>
+                                            <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="contact-tab">
+                                                Lorem Ipsum 5
+                                            </div>
+                                            <div class="tab-pane fade" id="tab6" role="tabpanel" aria-labelledby="contact-tab">
+                                                Lorem Ipsum 6
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"  type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $(window).resize(function() {
+                location.reload();
+            });
+        });
+    
+        //test
+        if($(window).width() <= 1024 ){
+            var hidWidth;
+            var scrollBarWidths = 40;
+            //console.log('hi');
+            var widthOfList = function(){
+                var itemsWidth = 0;
+                $('.list li').each(function(){
+                    var itemWidth = $(this).outerWidth();
+                    itemsWidth+=itemWidth;
+                });
+                return itemsWidth;
+            };
+
+            var widthOfHidden = function(){
+                return (($('.wrapper').outerWidth())-widthOfList()-getLeftPosi())-scrollBarWidths;
+            };
+
+            var getLeftPosi = function(){
+            return $('.list').position().left;
+            };
+
+            var reAdjust = function(){
+            if (($('.wrapper').outerWidth()) < widthOfList()) {
+                $('.scroller-right').show();
+            }
+            else {
+                $('.scroller-right').hide();
+            }
+            
+            if (getLeftPosi()<0) {
+                $('.scroller-left').show();
+            }
+            else {
+                $('.item').animate({left:"-="+getLeftPosi()+"px"},'slow');
+                $('.scroller-left').hide();
+            }
+            }
+
+            reAdjust();
+
+            $(window).on('resize',function(e){  
+                reAdjust();
+            });
+
+            $('.scroller-right').click(function() {
+            
+            $('.scroller-left').fadeIn('slow');
+            $('.scroller-right').fadeOut('slow');
+            
+            $('.list').animate({left:"+="+widthOfHidden()+"px"},'slow',function(){
+
+            });
+            });
+
+            $('.scroller-left').click(function() {
+            
+                $('.scroller-right').fadeIn('slow');
+                $('.scroller-left').fadeOut('slow');
+            
+                $('.list').animate({left:"-="+getLeftPosi()+"px"},'slow',function(){
+                
+                });
+            });    
+        }
+        
+        if($(window).width() <= 767 ){    
+            $(document).ready(function(){            
+                $("#nav-tabs-show").click(function(){
+                    $(".nav-tabs-horizontal").toggle();
+                });
+                $( document ).on('click', '.tabs-secondary-list', function() {
+                    var s_title = $( this ).html();
+                    $('.tabs-master-list').html(s_title);
+                });
+            });
+        }
+        
+    </script>
+</body>
+
+</html>
