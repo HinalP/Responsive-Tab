@@ -1,19 +1,34 @@
-.nav-tabs{justify-content: space-between;justify-content: space-between;}
-.rest-info-tab .nav-tabs .nav-item{width: 16.6%;border-right: 1px solid #e0e0e0;}
-.rest-info-tab .nav-tabs .nav-link {border-radius: 0;font-size: 14px;font-weight: 600;padding: 15px 40px;color: #313131;border: none;    text-align: center;}
-.rest-info-tab .nav-tabs .nav-item.show .nav-link,.rest-info-tab .nav-tabs .nav-link.active {border: none;background-color: #cd002b;color: #ffffff;border-radius: 0;font-size: 14px;font-weight: 600;}
+/*-- // Utility // --*/
+html, body{height:100%;}
+/*-- // Center Content // --*/
+.category-row{height:100%;display:flex;align-items:center;}
+/*-- // Tabs // --*/
+.nav-tabs{justify-content: space-between;border:0;}
+.rest-info-tab .nav-tabs .nav-item{min-width:200px;margin:0;}
+.rest-info-tab .nav-tabs .nav-link {border-radius: 0;font-size: 14px;font-weight: 600;padding: 15px 40px;color: #313131;border: 0;text-align: center;display:block;background:rgba(242, 242, 242, 0.3);}
+.rest-info-tab .nav-tabs .nav-item.show .nav-link,.rest-info-tab .nav-tabs .nav-link.active {border: none;background-color: #3f68b5;color: #ffffff;border-radius: 0;font-size: 14px;font-weight: 600;}
 .rest-info-tab .tab-content {padding: 20px;}
 .nav-tabs-dropdown {display: none;border-radius: 0;}
 .nav-tabs-dropdown:before {content: "\e901";font-family: 'icomoon' !important;position: absolute;right: 20px;}
 .scroller{display: none;}
-@media screen and (max-width: 1024px) and (min-width: 767px) {
-    /* #nav-tabs-wrapper {overflow:hidden;white-space: nowrap;z-index:-1;position:static;display: block;}
-    #nav-tabs-wrapper>li {float:none;display:inline-block;width: auto;}
-    .arrow {padding:10px;position:absolute;background-color:#fff;z-index:2}
-    #leftArr {left:0;background: #333;}
-    #rightArr {right:0;background: #333;} */
-    
-    .wrapper {position:relative;margin:0 auto;overflow:hidden;padding:5px;height:50px;}
+/*-- // Scroll Tabs // --*/
+.scrtabs-tab-container *{box-sizing:border-box}
+.scrtabs-tab-container .tab-content{clear:left}
+.scrtabs-tab-container.scrtabs-bootstrap4 .scrtabs-tabs-movable-container > .navbar-nav{-ms-flex-direction:row;flex-direction:row}
+.scrtabs-tabs-fixed-container{float:left;overflow:hidden;width:100%}
+.scrtabs-tabs-movable-container{position:relative}
+.scrtabs-tabs-movable-container .tab-content{display:none}
+.scrtabs-tab-container.scrtabs-rtl .scrtabs-tabs-movable-container > ul.nav-tabs{padding-right:0}
+.scrtabs-tab-scroll-arrow{border:1px solid #3f68b5;background:#3f68b5;border-top:none;color:#fff;display:none;float:left;font-size:12px;height:51px;margin-bottom:-1px;padding-left:2px;padding-top:13px;width:20px}
+.scrtabs-tab-scroll-arrow:hover{background-color:#3f68b5}
+.scrtabs-tab-scroll-arrow,.scrtabs-tab-scroll-arrow .scrtabs-click-target{cursor:pointer}
+.scrtabs-tab-scroll-arrow.scrtabs-with-click-target{cursor:default}
+.scrtabs-tab-scroll-arrow.scrtabs-disable,.scrtabs-tab-scroll-arrow.scrtabs-disable .scrtabs-click-target{color:#ddd;cursor:default}
+.scrtabs-tab-scroll-arrow.scrtabs-disable:hover{background-color:initial}
+.scrtabs-tabs-fixed-container ul.nav-tabs > li{white-space:nowrap}
+
+@media (min-width: 767px) {
+    .wrapper {position:relative;margin:0 auto;overflow:hidden;height:50px;}
     .list {position:absolute;left:0px;top:0px;min-width:3000px;margin-left:12px;margin-top:0px;}
     .list li{display:table-cell;position:relative;text-align:center;cursor:grab;cursor:-webkit-grab;color:#efefef;vertical-align:middle;}
     .scroller {text-align:center;cursor:pointer;display:none;padding:7px;padding-top:11px;white-space:no-wrap;vertical-align:middle;background-color:#fff;position: absolute;top:15px;}
